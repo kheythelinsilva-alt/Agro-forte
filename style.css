@@ -1,1 +1,259 @@
+/* ==========================================================================
+   AGRO FORTE - IDENTIDADE VISUAL E ESTILIZAÇÃO
+   ========================================================================== */
 
+/* 1. CONFIGURAÇÕES GERAIS E VARIÁVEIS DE COR */
+:root {
+    --primary-color: #1b4332;      /* Verde escuro (Agro robusto e tradicional) */
+    --secondary-color: #2d6a4f;    /* Verde médio (Tecnologia e crescimento) */
+    --accent-color: #d4a373;       /* Terracota/Dourado (Terra e colheita) */
+    --dark-color: #1e2522;         /* Quase preto (Leitura confortável) */
+    --light-color: #f8f9fa;        /* Fundo claro para contraste de seções */
+    --white: #ffffff;
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Deslizamento suave ao clicar no menu */
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--dark-color);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. COMPONENTES E BOTÕES
+   ========================================================================== */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. CABEÇALHO E MENU DE NAVEGAÇÃO
+   ========================================================================== */
+.header {
+    background-color: var(--primary-color);
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 25px;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   4. HERO BANNER (Abertura com imagem de impacto)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(30, 37, 34, 0.8)), 
+                url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.hero-buttons .btn {
+    margin: 10px;
+}
+
+/* ==========================================================================
+   5. SEÇÕES DE CONTEÚDO E GRID
+   ========================================================================== */
+.section {
+    padding: 80px 5%;
+}
+
+.section-bg {
+    background-color: var(--light-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Grid Inteligente de Cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   6. RODAPÉ (Footer)
+   ========================================================================== */
+.footer {
+    background-color: var(--dark-color);
+    color: #a0a0a0;
+    padding: 40px 5% 20px;
+    text-align: center;
+    border-top: 5px solid var(--primary-color);
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   7. SE ADAPTANDO A TELAS MENORES (Responsividade Geral)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-menu {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav-item {
+        margin: 0 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .section {
+        padding: 50px 5%;
+    }
+}
