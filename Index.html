@@ -1,1 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte | Tecnologia e Produtividade no Campo</title>
+    
+    <!-- Importação da Fonte Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- ==========================================================================
+       ESTILOS CSS (Estilo Visual Agro Forte)
+       ========================================================================== -->
+    <style>
+        :root {
+            --primary-color: #1b4332;      /* Verde escuro (Agro tradicional/Forte) */
+            --secondary-color: #2d6a4f;    /* Verde médio (Crescimento/Tecnologia) */
+            --accent-color: #d4a373;       /* Terracota/Dourado (Terra/Colheita) */
+            --dark-color: #1e2522;         /* Quase preto, para textos principais */
+            --light-color: #f8f9fa;        /* Fundo claro para seções */
+            --white: #ffffff;
+            --font-main: 'Poppins', sans-serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark-color);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Cabeçalho */
+        .header {
+            background-color: var(--primary-color);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 25px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(30, 37, 34, 0.8)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons .btn {
+            margin: 10px;
+        }
+
+        /* Seções de Conteúdo */
+        .section {
+            padding: 80px 5%;
+        }
+
+        .section-bg {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid de Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: var(--dark-color);
+            color: #a0a0a0;
+            padding: 40px 5% 20px;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .footer-content {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-copyright {
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* Responsividade Básica (o restante é tratado via JS) */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       ESTRUTURA HTML
+       ========================================================================== -->
+    
+    <!-- 1. CABEÇALHO -->
+    <header class="header">
+        <div class="logo">Agro<span>Forte</span></div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#inicio" class="nav-link">Início</a></li>
+                <li class="nav-item"><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+                <li class="nav-item"><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li class="nav-item"><a href="#numeros" class="nav-link">Resultados</a></li>
+                <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. BANNER PRINCIPAL (HERO) -->
+    <section id="inicio" class="hero">
+        <h1>A Força que Movimenta a Terra e Alimenta o Futuro</h1>
+        <p>Unimos a tradição do campo à tecnologia de ponta para maximizar a produtividade e a sustentabilidade da sua lavoura.</p>
+        <div class="hero-buttons">
+            <a href="#servicos" class="btn">Nossas Soluções</a>
+            <a href="#contato" class="btn btn-secondary">Fale com um Especialista</a>
+        </div>
+    </section>
+
+    <!-- 3. SEÇÃO SOBRE NÓS -->
+    <section id="sobre" class="section reveal">
+        <h2 class="section-title">Quem Somos</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; color: #444;">
+            <p style="margin-bottom: 20px;">
+                O <strong>Agro Forte</strong> nasceu com a missão de apoiar o produtor rural na jornada da transformação digital e do manejo inteligente. Entendemos os desafios do campo porque viemos dele.
+            </p>
+            <p>
+                Oferecemos soluções robustas que garantem segurança jurídica, otimização de insumos, maquinário inteligente e sustentabilidade real para que a sua colheita seja sempre a maior do mercado.
+            </p>
+        </div>
+    </section>
+
+    <!-- 4. SEÇÃO SERVIÇOS -->
+    <section id="servicos" class="section section-bg reveal">
+        <h2 class="section-title">Nossas Soluções</h2>
+        <div class="grid-container">
+            
+            <div class="card">
+                <h3>Monitoramento de Safra</h3>
+                <p>Análise de dados via satélite e drones para acompanhar a saúde da lavoura em tempo real e prever pragas.</p>
+            </div>
+
+            <div class="card">
+                <h3>Manejo de Insumos</h3>
+                <p>Consultoria especializada para a aplicação exata de fertilizantes e defensivos, reduzindo custos e desperdício.</p>
+            </div>
+
+            <div class="card">
+                <h3>Agro Tecnologia</h3>
+                <p>Integração de maquinários e telemetria avançada para automatizar processos e garantir precisão milimétrica.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. SEÇÃO DE NÚMEROS / CONQUISTAS -->
+    <section id="numeros" class="section reveal" style="text-align: center;">
+        <h2 class="section-title">Nossa Força no Campo</h2>
+        <div class="grid-container" style="margin-top: 40px;">
+            
+            <div>
+                <h3 style="font-size: 3rem; color: #2d6a4f;">+<span class="counter" data-target="50000">0</span></h3>
+                <p style="font-weight: 600; text-transform: uppercase; color: #666;">Hectares Atendidos</p>
+            </div>
+
+            <div>
+                <h3 style="font-size: 3rem; color: #2d6a4f;"><span class="counter" data-target="1200">0</span></h3>
+                <p style="font-weight: 600; text-transform: uppercase; color: #666;">Produtores Parceiros</p>
+            </div>
+
+            <div>
+                <h3 style="font-size: 3rem; color: #2d6a4f;">+<span class="counter" data-target="98">0</span>%</h3>
+                <p style="font-weight: 600; text-transform: uppercase; color: #666;">De Aumento na Produtividade</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SEÇÃO DE CONTATO -->
+    <section id="contato" class="section section-bg reveal" style="text-align: center;">
+        <h2 class="section-title">Pronto para Fortalecer sua Lavoura?</h2>
+        <p style="margin-bottom: 30px; font-size: 1.2rem;">Entre em contato com a nossa equipe de engenheiros agrônomos e consultores tecnológicos.</p>
+        <a href="https://wa.me/5500999999999" target="_blank" class="btn" style="background-color: #25d366;">
+            Falar pelo WhatsApp
+        </a>
+    </section>
+
+    <!-- 7. RODAPÉ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Agro<span>Forte</span></div>
+            <p>Inovação, força e sustentabilidade no agronegócio de ponta a ponta.</p>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Agro Forte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       SCRIPTS JAVASCRIPT (Interatividade e Dinamismo)
+       ========================================================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initMobileMenu();
+            initAnimatedCounters();
+            initScrollReveal();
+        });
+
+        // 1. MENU MOBILE RESPONSIVO
+        function initMobileMenu() {
+            const header = document.querySelector('.header');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (!header || !navMenu) return;
+
+            if (!document.querySelector('.menu-toggle')) {
+                const toggleBtn = document.createElement('button');
+                toggleBtn.classList.add('menu-toggle');
+                toggleBtn.innerHTML = '&#9776;'; 
+                toggleBtn.style.cssText = `
+                    background: none;
+                    border: none;
+                    color: #ffffff;
+                    font-size: 24px;
+                    cursor: pointer;
+                    display: none;
+                `;
+                
+                header.insertBefore(toggleBtn, navMenu);
+
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    @media (max-width: 768px) {
+                        .menu-toggle { display: block !important; }
+                        .nav-menu { 
+                            display: none; 
+                            flex-direction: column; 
+                            width: 100%; 
+                            position: absolute; 
+                            top: 100%; 
+                            left: 0; 
+                            background-color: #1b4332; 
+                            padding: 20px 0;
+                            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                        }
+                        .nav-menu.active { display: flex; }
+                        .nav-item { margin: 10px 0 !important; text-align: center; }
+                    }
+                `;
+                document.head.appendChild(style);
+
+                toggleBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
+        }
+
+        // 2. CONTADORES ANIMADOS
+        function initAnimatedCounters() {
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            const startCounting = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(() => startCounting(counter), 1);
+                } else {
+                    counter.innerText = target.toLocaleString('pt-BR');
+                }
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounting(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // 3. SCROLL REVEAL (Efeito Suave)
+        function initScrollReveal() {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .reveal {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: all 0.8s ease-out;
+                }
+                .reveal.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            `;
+            document.head.appendChild(style);
+
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (elementTop < windowHeight - 50) {
+                        el.classList.add('visible');
+                    }
+                });
+            };
+
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+        }
+    </script>
+</body>
+</html>
